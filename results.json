@@ -1,0 +1,1175 @@
+{
+  "primary_budget": 3,
+  "replays": [
+    {
+      "budgets": [
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 0.004,
+            "hvac": 0.004,
+            "matched": 0.004
+          },
+          "lift_pct": 0.0,
+          "size": 1
+        },
+        {
+          "delta_kw": 1.113867,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 3.867467,
+            "hvac": 4.981333,
+            "matched": 4.981333
+          },
+          "lift_pct": 28.800938,
+          "size": 2
+        },
+        {
+          "delta_kw": 1.712267,
+          "delta_matched_kw": 0.777133,
+          "kw": {
+            "baseline": 7.132533,
+            "hvac": 8.8448,
+            "matched": 8.067667
+          },
+          "lift_pct": 24.006431,
+          "size": 3
+        },
+        {
+          "delta_kw": 0.8874,
+          "delta_matched_kw": 1.066133,
+          "kw": {
+            "baseline": 12.109867,
+            "hvac": 12.997267,
+            "matched": 11.931133
+          },
+          "lift_pct": 7.327909,
+          "size": 4
+        },
+        {
+          "delta_kw": 0.8874,
+          "delta_matched_kw": 1.066133,
+          "kw": {
+            "baseline": 14.9264,
+            "hvac": 15.8138,
+            "matched": 14.747667
+          },
+          "lift_pct": 5.945171,
+          "size": 5
+        },
+        {
+          "delta_kw": 1.066133,
+          "delta_matched_kw": 0.178733,
+          "kw": {
+            "baseline": 18.012733,
+            "hvac": 19.078867,
+            "matched": 18.900133
+          },
+          "lift_pct": 5.918776,
+          "size": 6
+        },
+        {
+          "delta_kw": -0.311267,
+          "delta_matched_kw": -0.311267,
+          "kw": {
+            "baseline": 22.1652,
+            "hvac": 21.853933,
+            "matched": 22.1652
+          },
+          "lift_pct": -1.404303,
+          "size": 7
+        },
+        {
+          "delta_kw": -0.311267,
+          "delta_matched_kw": -0.311267,
+          "kw": {
+            "baseline": 25.654333,
+            "hvac": 25.343067,
+            "matched": 25.654333
+          },
+          "lift_pct": -1.21331,
+          "size": 8
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.572867,
+          "kw": {
+            "baseline": 28.4294,
+            "hvac": 28.4294,
+            "matched": 27.856533
+          },
+          "lift_pct": 0.0,
+          "size": 9
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 30.6316,
+            "hvac": 30.6316,
+            "matched": 30.6316
+          },
+          "lift_pct": 0.0,
+          "size": 10
+        }
+      ],
+      "coverage_check": {
+        "excluded_from_all": true,
+        "hvac_after": [
+          2,
+          1,
+          9
+        ],
+        "hvac_before": [
+          7,
+          2,
+          1
+        ],
+        "injected_home": 7,
+        "missing_observations": 1
+      },
+      "date": "2018-08-23",
+      "eligible": 10,
+      "ercot_4cp": true,
+      "event_utc": [
+        "2018-08-23 21:30:00+00:00",
+        "2018-08-23 21:45:00+00:00"
+      ],
+      "excluded": {},
+      "households": [
+        {
+          "event_kw": 3.863467,
+          "id": 1,
+          "prior_kw": {
+            "baseline": 2.486807,
+            "hvac": 2.973067,
+            "matched": 0.193233
+          },
+          "ranks": {
+            "baseline": 2,
+            "hvac": 3,
+            "matched": 4
+          },
+          "recent_hvac_quarters_kw": [
+            0.519667,
+            1.895467,
+            4.7092,
+            4.767933
+          ]
+        },
+        {
+          "event_kw": 4.977333,
+          "id": 2,
+          "prior_kw": {
+            "baseline": 2.183462,
+            "hvac": 3.2321,
+            "matched": 1.1201
+          },
+          "ranks": {
+            "baseline": 4,
+            "hvac": 2,
+            "matched": 2
+          },
+          "recent_hvac_quarters_kw": [
+            4.751333,
+            0.554267,
+            3.353933,
+            4.268867
+          ]
+        },
+        {
+          "event_kw": 2.816533,
+          "id": 3,
+          "prior_kw": {
+            "baseline": 2.048717,
+            "hvac": 2.87995,
+            "matched": -0.3869
+          },
+          "ranks": {
+            "baseline": 5,
+            "hvac": 5,
+            "matched": 5
+          },
+          "recent_hvac_quarters_kw": [
+            2.883667,
+            2.898467,
+            2.889133,
+            2.848533
+          ]
+        },
+        {
+          "event_kw": 2.775067,
+          "id": 4,
+          "prior_kw": {
+            "baseline": 0.63533,
+            "hvac": 1.388517,
+            "matched": -3.169983
+          },
+          "ranks": {
+            "baseline": 9,
+            "hvac": 7,
+            "matched": 10
+          },
+          "recent_hvac_quarters_kw": [
+            0.367467,
+            0.6602,
+            1.744133,
+            2.782267
+          ]
+        },
+        {
+          "event_kw": 3.265067,
+          "id": 5,
+          "prior_kw": {
+            "baseline": 2.384595,
+            "hvac": 2.193133,
+            "matched": -0.9406
+          },
+          "ranks": {
+            "baseline": 3,
+            "hvac": 6,
+            "matched": 7
+          },
+          "recent_hvac_quarters_kw": [
+            3.528667,
+            0.714133,
+            3.340733,
+            1.189
+          ]
+        },
+        {
+          "event_kw": 3.489133,
+          "id": 6,
+          "prior_kw": {
+            "baseline": 1.183862,
+            "hvac": 1.368067,
+            "matched": -1.555983
+          },
+          "ranks": {
+            "baseline": 8,
+            "hvac": 8,
+            "matched": 8
+          },
+          "recent_hvac_quarters_kw": [
+            0.393467,
+            2.138067,
+            2.106533,
+            0.8342
+          ]
+        },
+        {
+          "event_kw": 0.004,
+          "id": 7,
+          "prior_kw": {
+            "baseline": 2.605976,
+            "hvac": 4.732333,
+            "matched": 2.029617
+          },
+          "ranks": {
+            "baseline": 1,
+            "hvac": 1,
+            "matched": 1
+          },
+          "recent_hvac_quarters_kw": [
+            4.721733,
+            4.7166,
+            4.7392,
+            4.7518
+          ]
+        },
+        {
+          "event_kw": 3.086333,
+          "id": 8,
+          "prior_kw": {
+            "baseline": 1.438702,
+            "hvac": 1.2619,
+            "matched": 0.412217
+          },
+          "ranks": {
+            "baseline": 6,
+            "hvac": 9,
+            "matched": 3
+          },
+          "recent_hvac_quarters_kw": [
+            1.647467,
+            0.424933,
+            1.142067,
+            1.833133
+          ]
+        },
+        {
+          "event_kw": 4.152467,
+          "id": 9,
+          "prior_kw": {
+            "baseline": 1.438609,
+            "hvac": 2.934883,
+            "matched": -0.4848
+          },
+          "ranks": {
+            "baseline": 7,
+            "hvac": 4,
+            "matched": 6
+          },
+          "recent_hvac_quarters_kw": [
+            2.451867,
+            4.147867,
+            3.919133,
+            1.220667
+          ]
+        },
+        {
+          "event_kw": 2.2022,
+          "id": 10,
+          "prior_kw": {
+            "baseline": 0.349466,
+            "hvac": 0.009,
+            "matched": -1.649883
+          },
+          "ranks": {
+            "baseline": 10,
+            "hvac": 10,
+            "matched": 9
+          },
+          "recent_hvac_quarters_kw": [
+            0.009,
+            0.009,
+            0.009,
+            0.009
+          ]
+        }
+      ],
+      "orders": {
+        "baseline": [
+          7,
+          1,
+          5,
+          2,
+          3,
+          8,
+          9,
+          6,
+          4,
+          10
+        ],
+        "hvac": [
+          7,
+          2,
+          1,
+          9,
+          3,
+          5,
+          4,
+          6,
+          8,
+          10
+        ],
+        "matched": [
+          7,
+          2,
+          8,
+          1,
+          3,
+          9,
+          5,
+          6,
+          10,
+          4
+        ]
+      },
+      "primary_budget": 3,
+      "ranking_utc": {
+        "panel": [
+          "2018-08-23 00:00:00+00:00",
+          "2018-08-23 20:30:00+00:00"
+        ],
+        "recent": [
+          "2018-08-23 19:30:00+00:00",
+          "2018-08-23 20:30:00+00:00"
+        ]
+      },
+      "source_csv_sha256": "1f7ecc25db0f228273d29fa60c5df84d02df1eb27c27e8409b3033d5cd6fa03f",
+      "total_event_kw": 30.6316
+    },
+    {
+      "budgets": [
+        {
+          "delta_kw": -2.713733,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 2.717733,
+            "hvac": 0.004,
+            "matched": 0.004
+          },
+          "lift_pct": -99.852819,
+          "size": 1
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 2.721733,
+            "hvac": 2.721733,
+            "matched": 2.721733
+          },
+          "lift_pct": 0.0,
+          "size": 2
+        },
+        {
+          "delta_kw": -0.715733,
+          "delta_matched_kw": -0.715733,
+          "kw": {
+            "baseline": 6.917333,
+            "hvac": 6.2016,
+            "matched": 6.917333
+          },
+          "lift_pct": -10.346955,
+          "size": 3
+        },
+        {
+          "delta_kw": -1.519867,
+          "delta_matched_kw": -1.059667,
+          "kw": {
+            "baseline": 10.8574,
+            "hvac": 9.337533,
+            "matched": 10.3972
+          },
+          "lift_pct": -13.99844,
+          "size": 4
+        },
+        {
+          "delta_kw": -0.804133,
+          "delta_matched_kw": 0.949067,
+          "kw": {
+            "baseline": 14.337267,
+            "hvac": 13.533133,
+            "matched": 12.584067
+          },
+          "lift_pct": -5.608693,
+          "size": 5
+        },
+        {
+          "delta_kw": -0.804133,
+          "delta_matched_kw": 1.943133,
+          "kw": {
+            "baseline": 18.467267,
+            "hvac": 17.663133,
+            "matched": 15.72
+          },
+          "lift_pct": -4.354371,
+          "size": 6
+        },
+        {
+          "delta_kw": -1.153333,
+          "delta_matched_kw": 0.599867,
+          "kw": {
+            "baseline": 21.6032,
+            "hvac": 20.449867,
+            "matched": 19.85
+          },
+          "lift_pct": -5.338715,
+          "size": 7
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.599867,
+          "kw": {
+            "baseline": 24.389933,
+            "hvac": 24.389933,
+            "matched": 23.790067
+          },
+          "lift_pct": 0.0,
+          "size": 8
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": -1.208,
+          "kw": {
+            "baseline": 26.5768,
+            "hvac": 26.5768,
+            "matched": 27.7848
+          },
+          "lift_pct": 0.0,
+          "size": 9
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 30.571533,
+            "hvac": 30.571533,
+            "matched": 30.571533
+          },
+          "lift_pct": 0.0,
+          "size": 10
+        }
+      ],
+      "coverage_check": {
+        "excluded_from_all": true,
+        "hvac_after": [
+          1,
+          6,
+          3
+        ],
+        "hvac_before": [
+          7,
+          1,
+          6
+        ],
+        "injected_home": 7,
+        "missing_observations": 1
+      },
+      "date": "2018-08-24",
+      "eligible": 10,
+      "ercot_4cp": false,
+      "event_utc": [
+        "2018-08-24 21:30:00+00:00",
+        "2018-08-24 21:45:00+00:00"
+      ],
+      "excluded": {},
+      "households": [
+        {
+          "event_kw": 2.717733,
+          "id": 1,
+          "prior_kw": {
+            "baseline": 2.417144,
+            "hvac": 4.581483,
+            "matched": 1.503117
+          },
+          "ranks": {
+            "baseline": 1,
+            "hvac": 2,
+            "matched": 2
+          },
+          "recent_hvac_quarters_kw": [
+            4.573533,
+            4.544,
+            4.582933,
+            4.625467
+          ]
+        },
+        {
+          "event_kw": 4.1956,
+          "id": 2,
+          "prior_kw": {
+            "baseline": 2.233689,
+            "hvac": 3.02845,
+            "matched": 0.77875
+          },
+          "ranks": {
+            "baseline": 3,
+            "hvac": 5,
+            "matched": 3
+          },
+          "recent_hvac_quarters_kw": [
+            3.143533,
+            3.288867,
+            3.2808,
+            2.4006
+          ]
+        },
+        {
+          "event_kw": 3.135933,
+          "id": 3,
+          "prior_kw": {
+            "baseline": 1.044908,
+            "hvac": 3.1299,
+            "matched": -0.23665
+          },
+          "ranks": {
+            "baseline": 7,
+            "hvac": 4,
+            "matched": 6
+          },
+          "recent_hvac_quarters_kw": [
+            3.124733,
+            3.108467,
+            3.144933,
+            3.141467
+          ]
+        },
+        {
+          "event_kw": 2.786733,
+          "id": 4,
+          "prior_kw": {
+            "baseline": 0.998263,
+            "hvac": 2.28755,
+            "matched": -2.328017
+          },
+          "ranks": {
+            "baseline": 8,
+            "hvac": 7,
+            "matched": 10
+          },
+          "recent_hvac_quarters_kw": [
+            2.735733,
+            2.714467,
+            0.9192,
+            2.7808
+          ]
+        },
+        {
+          "event_kw": 3.940067,
+          "id": 5,
+          "prior_kw": {
+            "baseline": 1.583923,
+            "hvac": 2.092717,
+            "matched": -0.9886
+          },
+          "ranks": {
+            "baseline": 4,
+            "hvac": 8,
+            "matched": 8
+          },
+          "recent_hvac_quarters_kw": [
+            2.801867,
+            1.7854,
+            3.6148,
+            0.1688
+          ]
+        },
+        {
+          "event_kw": 3.479867,
+          "id": 6,
+          "prior_kw": {
+            "baseline": 1.321693,
+            "hvac": 3.17515,
+            "matched": 0.479033
+          },
+          "ranks": {
+            "baseline": 5,
+            "hvac": 3,
+            "matched": 4
+          },
+          "recent_hvac_quarters_kw": [
+            3.4242,
+            2.379133,
+            3.438933,
+            3.458333
+          ]
+        },
+        {
+          "event_kw": 0.004,
+          "id": 7,
+          "prior_kw": {
+            "baseline": 2.258119,
+            "hvac": 4.770667,
+            "matched": 1.865
+          },
+          "ranks": {
+            "baseline": 2,
+            "hvac": 1,
+            "matched": 1
+          },
+          "recent_hvac_quarters_kw": [
+            4.766133,
+            4.778533,
+            4.784467,
+            4.753533
+          ]
+        },
+        {
+          "event_kw": 3.994733,
+          "id": 8,
+          "prior_kw": {
+            "baseline": 0.356006,
+            "hvac": 1.43025,
+            "matched": -1.7598
+          },
+          "ranks": {
+            "baseline": 10,
+            "hvac": 10,
+            "matched": 9
+          },
+          "recent_hvac_quarters_kw": [
+            1.250267,
+            1.0114,
+            1.8262,
+            1.633133
+          ]
+        },
+        {
+          "event_kw": 4.13,
+          "id": 9,
+          "prior_kw": {
+            "baseline": 1.277617,
+            "hvac": 2.58965,
+            "matched": -0.975233
+          },
+          "ranks": {
+            "baseline": 6,
+            "hvac": 6,
+            "matched": 7
+          },
+          "recent_hvac_quarters_kw": [
+            1.632,
+            3.929667,
+            2.2248,
+            2.572133
+          ]
+        },
+        {
+          "event_kw": 2.186867,
+          "id": 10,
+          "prior_kw": {
+            "baseline": 0.948487,
+            "hvac": 1.531133,
+            "matched": -0.037983
+          },
+          "ranks": {
+            "baseline": 9,
+            "hvac": 9,
+            "matched": 5
+          },
+          "recent_hvac_quarters_kw": [
+            1.0662,
+            2.1864,
+            1.0266,
+            1.845333
+          ]
+        }
+      ],
+      "orders": {
+        "baseline": [
+          1,
+          7,
+          2,
+          5,
+          6,
+          9,
+          3,
+          4,
+          10,
+          8
+        ],
+        "hvac": [
+          7,
+          1,
+          6,
+          3,
+          2,
+          9,
+          4,
+          5,
+          10,
+          8
+        ],
+        "matched": [
+          7,
+          1,
+          2,
+          6,
+          10,
+          3,
+          9,
+          5,
+          8,
+          4
+        ]
+      },
+      "primary_budget": 3,
+      "ranking_utc": {
+        "panel": [
+          "2018-08-24 00:00:00+00:00",
+          "2018-08-24 20:30:00+00:00"
+        ],
+        "recent": [
+          "2018-08-24 19:30:00+00:00",
+          "2018-08-24 20:30:00+00:00"
+        ]
+      },
+      "source_csv_sha256": "1f7ecc25db0f228273d29fa60c5df84d02df1eb27c27e8409b3033d5cd6fa03f",
+      "total_event_kw": 30.571533
+    },
+    {
+      "budgets": [
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 0.515067,
+            "hvac": 0.515067,
+            "matched": 0.515067
+          },
+          "lift_pct": 0.0,
+          "size": 1
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 2.337333,
+            "hvac": 2.337333,
+            "matched": 2.337333
+          },
+          "lift_pct": 0.0,
+          "size": 2
+        },
+        {
+          "delta_kw": -0.509867,
+          "delta_matched_kw": -2.364933,
+          "kw": {
+            "baseline": 5.135467,
+            "hvac": 4.6256,
+            "matched": 6.990533
+          },
+          "lift_pct": -9.928341,
+          "size": 3
+        },
+        {
+          "delta_kw": -2.364933,
+          "delta_matched_kw": -1.855067,
+          "kw": {
+            "baseline": 9.788667,
+            "hvac": 7.423733,
+            "matched": 9.2788
+          },
+          "lift_pct": -24.159913,
+          "size": 4
+        },
+        {
+          "delta_kw": -3.481467,
+          "delta_matched_kw": -1.9272,
+          "kw": {
+            "baseline": 13.6312,
+            "hvac": 10.149733,
+            "matched": 12.076933
+          },
+          "lift_pct": -25.540427,
+          "size": 5
+        },
+        {
+          "delta_kw": -1.554267,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 16.3572,
+            "hvac": 14.802933,
+            "matched": 14.802933
+          },
+          "lift_pct": -9.502034,
+          "size": 6
+        },
+        {
+          "delta_kw": -2.327333,
+          "delta_matched_kw": 0.139067,
+          "kw": {
+            "baseline": 18.645467,
+            "hvac": 16.318133,
+            "matched": 16.179067
+          },
+          "lift_pct": -12.482033,
+          "size": 7
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.139067,
+          "kw": {
+            "baseline": 20.160667,
+            "hvac": 20.160667,
+            "matched": 20.0216
+          },
+          "lift_pct": 0.0,
+          "size": 8
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 21.5368,
+            "hvac": 21.5368,
+            "matched": 21.5368
+          },
+          "lift_pct": 0.0,
+          "size": 9
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 21.7406,
+            "hvac": 21.7406,
+            "matched": 21.7406
+          },
+          "lift_pct": 0.0,
+          "size": 10
+        }
+      ],
+      "coverage_check": {
+        "excluded_from_all": true,
+        "hvac_after": [
+          2,
+          9,
+          3
+        ],
+        "hvac_before": [
+          1,
+          2,
+          9
+        ],
+        "injected_home": 1,
+        "missing_observations": 1
+      },
+      "date": "2018-08-25",
+      "eligible": 10,
+      "ercot_4cp": false,
+      "event_utc": [
+        "2018-08-25 21:30:00+00:00",
+        "2018-08-25 21:45:00+00:00"
+      ],
+      "excluded": {},
+      "households": [
+        {
+          "event_kw": 0.515067,
+          "id": 1,
+          "prior_kw": {
+            "baseline": 2.925344,
+            "hvac": 4.594667,
+            "matched": 1.583417
+          },
+          "ranks": {
+            "baseline": 1,
+            "hvac": 1,
+            "matched": 1
+          },
+          "recent_hvac_quarters_kw": [
+            4.5978,
+            4.608533,
+            4.569733,
+            4.6026
+          ]
+        },
+        {
+          "event_kw": 1.822267,
+          "id": 2,
+          "prior_kw": {
+            "baseline": 2.396681,
+            "hvac": 3.310083,
+            "matched": 0.967633
+          },
+          "ranks": {
+            "baseline": 2,
+            "hvac": 2,
+            "matched": 2
+          },
+          "recent_hvac_quarters_kw": [
+            4.388733,
+            2.213533,
+            2.7384,
+            3.899667
+          ]
+        },
+        {
+          "event_kw": 2.798133,
+          "id": 3,
+          "prior_kw": {
+            "baseline": 2.246647,
+            "hvac": 2.831783,
+            "matched": -0.629817
+          },
+          "ranks": {
+            "baseline": 3,
+            "hvac": 4,
+            "matched": 5
+          },
+          "recent_hvac_quarters_kw": [
+            2.8232,
+            2.824667,
+            2.827933,
+            2.851333
+          ]
+        },
+        {
+          "event_kw": 2.726,
+          "id": 4,
+          "prior_kw": {
+            "baseline": 1.564728,
+            "hvac": 2.728833,
+            "matched": -0.7974
+          },
+          "ranks": {
+            "baseline": 6,
+            "hvac": 5,
+            "matched": 6
+          },
+          "recent_hvac_quarters_kw": [
+            2.719267,
+            2.720467,
+            2.7216,
+            2.754
+          ]
+        },
+        {
+          "event_kw": 3.842533,
+          "id": 5,
+          "prior_kw": {
+            "baseline": 1.842665,
+            "hvac": 1.6066,
+            "matched": -1.593683
+          },
+          "ranks": {
+            "baseline": 5,
+            "hvac": 8,
+            "matched": 8
+          },
+          "recent_hvac_quarters_kw": [
+            1.1156,
+            3.830333,
+            1.471467,
+            0.009
+          ]
+        },
+        {
+          "event_kw": 0.2038,
+          "id": 6,
+          "prior_kw": {
+            "baseline": 0.308427,
+            "hvac": 0.520533,
+            "matched": -2.795167
+          },
+          "ranks": {
+            "baseline": 10,
+            "hvac": 10,
+            "matched": 10
+          },
+          "recent_hvac_quarters_kw": [
+            1.461667,
+            0.207933,
+            0.206867,
+            0.205667
+          ]
+        },
+        {
+          "event_kw": 4.6532,
+          "id": 7,
+          "prior_kw": {
+            "baseline": 2.061949,
+            "hvac": 2.558717,
+            "matched": 0.227517
+          },
+          "ranks": {
+            "baseline": 4,
+            "hvac": 6,
+            "matched": 3
+          },
+          "recent_hvac_quarters_kw": [
+            0.472067,
+            4.304733,
+            0.786867,
+            4.6712
+          ]
+        },
+        {
+          "event_kw": 1.5152,
+          "id": 8,
+          "prior_kw": {
+            "baseline": 0.500298,
+            "hvac": 1.773667,
+            "matched": -1.7888
+          },
+          "ranks": {
+            "baseline": 8,
+            "hvac": 7,
+            "matched": 9
+          },
+          "recent_hvac_quarters_kw": [
+            2.325467,
+            1.970467,
+            1.438867,
+            1.359867
+          ]
+        },
+        {
+          "event_kw": 2.288267,
+          "id": 9,
+          "prior_kw": {
+            "baseline": 1.317575,
+            "hvac": 3.044617,
+            "matched": -0.403233
+          },
+          "ranks": {
+            "baseline": 7,
+            "hvac": 3,
+            "matched": 4
+          },
+          "recent_hvac_quarters_kw": [
+            3.099667,
+            1.0846,
+            4.0432,
+            3.951
+          ]
+        },
+        {
+          "event_kw": 1.376133,
+          "id": 10,
+          "prior_kw": {
+            "baseline": 0.40736,
+            "hvac": 0.568733,
+            "matched": -1.0871
+          },
+          "ranks": {
+            "baseline": 9,
+            "hvac": 9,
+            "matched": 7
+          },
+          "recent_hvac_quarters_kw": [
+            1.008933,
+            0.204133,
+            1.036133,
+            0.025733
+          ]
+        }
+      ],
+      "orders": {
+        "baseline": [
+          1,
+          2,
+          3,
+          7,
+          5,
+          4,
+          9,
+          8,
+          10,
+          6
+        ],
+        "hvac": [
+          1,
+          2,
+          9,
+          3,
+          4,
+          7,
+          8,
+          5,
+          10,
+          6
+        ],
+        "matched": [
+          1,
+          2,
+          7,
+          9,
+          3,
+          4,
+          10,
+          5,
+          8,
+          6
+        ]
+      },
+      "primary_budget": 3,
+      "ranking_utc": {
+        "panel": [
+          "2018-08-25 00:00:00+00:00",
+          "2018-08-25 20:30:00+00:00"
+        ],
+        "recent": [
+          "2018-08-25 19:30:00+00:00",
+          "2018-08-25 20:30:00+00:00"
+        ]
+      },
+      "source_csv_sha256": "1f7ecc25db0f228273d29fa60c5df84d02df1eb27c27e8409b3033d5cd6fa03f",
+      "total_event_kw": 21.7406
+    }
+  ]
+}

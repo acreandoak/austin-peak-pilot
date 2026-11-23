@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Austin Peak Pilot</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{color-scheme:light;--paper:#f5f5ed;--surface:#fffef8;--ink:#152b25;--muted:#4c6259;--line:#c5cec2;--teal:#006852;--blue:#48598b;--amber:#825417;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,sans-serif}
+main,.top-inner{width:min(1160px,calc(100% - 48px));margin:auto}
+a{color:var(--teal);text-underline-offset:4px}
+.top{border-bottom:1px solid var(--line);background:var(--surface)}
+.top-inner{display:flex;justify-content:space-between;gap:1rem;padding:16px 0}
+.brand{font-weight:750;letter-spacing:-.02em}
+.meta{font:12px/1.6 var(--mono);color:var(--muted)}
+header{padding:54px 0 32px;max-width:900px}
+h1,h2,h3,p{margin:0}
+h1{font:normal clamp(2.65rem,6vw,5.15rem)/.98 Georgia,serif;letter-spacing:-.055em;max-width:900px;text-wrap:balance;margin:12px 0 18px}
+h2{font:normal 34px/1.1 Georgia,serif;letter-spacing:-.035em;margin:0 0 12px}
+h3{font-size:1.05rem;margin-bottom:8px}
+.lede{font-size:1.12rem;color:var(--muted);max-width:710px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line);background:var(--surface)}
+.stat{padding:23px 24px}.stat+.stat{border-left:1px solid var(--line)}
+.stat b{display:block;font:normal clamp(1.7rem,4.1vw,3.25rem)/1.15 Georgia,serif;margin:5px 0;letter-spacing:-.045em}
+.stat span{display:block;color:var(--muted);font-size:.9rem}.stat:first-child b{color:var(--teal)}
+.result-note{margin:14px 0 0;font-size:.92rem;color:var(--muted)}
+section{margin-top:50px}
+.study{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(255px,1fr);gap:28px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);padding:22px}
+fieldset{margin:0 0 17px;padding:0;border:0;min-width:0}
+legend{padding:0;margin-bottom:8px;font-weight:650}
+#dates,#budgets{display:flex;flex-wrap:wrap;gap:5px}
+button{font:inherit;cursor:pointer;color:var(--ink);border:1px solid var(--line);background:var(--surface);border-radius:3px}
+button:hover{border-color:var(--teal)}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.dates{gap:7px}
+.date{padding:8px 12px;text-align:left;min-width:126px}
+.date span,.date strong{display:block}
+.date span{font-size:.75rem}
+.date strong{font-size:.86rem}
+.trace{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;align-items:end;margin:0 0 10px;text-align:center}
+.trace span{display:block;font:11px/1.4 var(--mono)}
+.trace-track{height:32px;display:flex;align-items:end;justify-content:center}
+.trace-bar{display:block;width:80%;background:var(--teal);border-radius:2px 2px 0 0}
+.trace li:last-child{border-left:1px dashed var(--line)}
+.trace li:last-child .trace-bar{background:var(--blue)}
+.trace{list-style:none;padding:0}
+.qualification{margin-top:15px;padding:12px 0;border-block:1px solid var(--line);max-width:760px;font-weight:650}
+.budget{min-width:34px;min-height:38px;padding:4px 8px}
+button[aria-pressed="true"]{background:var(--teal);color:white;border-color:var(--teal)}
+.bar-row+.bar-row{margin-top:15px}.cohort{font:11px/1.5 var(--mono);color:var(--muted)}
+.bar-title{display:flex;justify-content:space-between;gap:10px;font-size:.9rem;font-weight:650}
+.bar-track{height:11px;margin:5px 0;background:#e4e8dd;border-radius:2px;overflow:hidden}
+.bar{height:100%;background:var(--teal)}.bar.matched{background:var(--blue)}.bar.baseline{background:var(--amber)}
+.axis{display:flex;justify-content:space-between;margin-top:12px;color:var(--muted);font:11px var(--mono)}
+.insight{border-top:1px solid var(--line);margin-top:15px;padding-top:12px;min-height:62px}
+.aside{padding:18px 0 0}.aside p+p{margin-top:13px}
+.copy{max-width:740px;color:var(--muted)}
+.households{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(255px,1fr);gap:28px;margin-top:18px}
+.table-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;background:var(--surface)}
+caption{text-align:left;padding:0 0 10px;color:var(--muted);font-size:.86rem}
+th,td{text-align:right;padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{font-size:.75rem;color:var(--muted);vertical-align:bottom}
+th:first-child,td:first-child{text-align:left}
+.house{padding:5px 9px;min-height:35px}
+td.selected{color:var(--teal);font-weight:800}tr.focus{background:#e7f2e8}
+.audit-list{margin:12px 0 15px}.audit-list div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:7px 0;font-size:.87rem}.audit-list dd{margin:0;white-space:nowrap;font-weight:680}
+details{border-block:1px solid var(--line);padding:12px 0;margin-top:18px;color:var(--muted)}
+summary{cursor:pointer;color:var(--ink);font-weight:650}
+details p{margin-top:10px}
+.decision{background:#173a30;color:#fffef5;padding:26px;margin-bottom:32px}
+.decision p{max-width:820px}.decision a{color:#d3efdb}.decision p+p{margin-top:12px}
+footer{border-top:1px solid var(--line);padding:13px 0 26px;color:var(--muted);font-size:.86rem}
+@media(max-width:820px){.study,.households{grid-template-columns:1fr;gap:18px}.aside{padding:0}.top-inner{flex-wrap:wrap;gap:4px}.table-scroll{max-width:100%}}
+@media(max-width:520px){main,.top-inner{width:calc(100% - 28px)}header{padding-top:36px}.stat{padding:14px 8px}.stat span{font-size:.74rem}.stat .meta{font-size:.72rem;min-height:2.35rem}.stat b{font-size:clamp(1rem,5.1vw,1.5rem);white-space:nowrap}.panel{padding:15px}.dates{gap:7px}
+.date{padding:8px 12px;text-align:left;min-width:126px}
+.date span,.date strong{display:block}
+.date span{font-size:.75rem}
+.date strong{font-size:.86rem}
+.trace{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;align-items:end;margin:0 0 10px;text-align:center}
+.trace span{display:block;font:11px/1.4 var(--mono)}
+.trace-track{height:32px;display:flex;align-items:end;justify-content:center}
+.trace-bar{display:block;width:80%;background:var(--teal);border-radius:2px 2px 0 0}
+.trace li:last-child{border-left:1px dashed var(--line)}
+.trace li:last-child .trace-bar{background:var(--blue)}
+.trace{list-style:none;padding:0}
+.qualification{margin-top:15px;padding:12px 0;border-block:1px solid var(--line);max-width:760px;font-weight:650}
+.budget{min-width:32px}.stats{margin-inline:-3px}th,td{padding:8px 7px}}
+@media print{body{background:white}main,.top-inner{width:100%}.decision{background:white;color:black}.decision a{color:black}section,.stats{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-inner"><div class="brand">Austin Peak Pilot</div><div class="meta">Daniel Thorpe · Bidgely work sample</div></div></div>
+<main>
+<header>
+  <div class="meta">AUSTIN, TEXAS &nbsp; / &nbsp; ERCOT PEAK · AUGUST 23, 2018</div>
+  <h1>Who makes the invitation list?</h1>
+  <p class="lede">Would recent appliance-level data help a utility recruit for a smart-thermostat program? We replayed three afternoons in the same ten Austin homes.</p>
+  <p class="qualification" id="finding"></p>
+</header>
+<div id="stats" class="stats" aria-label="Primary three-invitation result"></div>
+<p class="result-note" id="result-note"></p>
+
+<section aria-labelledby="compare-title" class="study">
+  <div>
+    <h2 id="compare-title">Compare the invitation lists</h2>
+    <div class="panel">
+      <fieldset><legend>Replay date · HVAC difference at three invites</legend><div class="dates" id="dates"></div></fieldset>
+      <fieldset><legend>Number of invitations</legend><div id="budgets"></div></fieldset>
+      <div id="bars" aria-label="Observed interval HVAC demand by ranking rule"></div>
+      <div class="axis"><span>0 kW</span><span id="axis-max"></span></div>
+      <p class="insight" id="delta" aria-live="polite"></p>
+    </div>
+  </div>
+  <aside class="aside">
+    <h3>One hour between ranking and event</h3>
+    <p>All lists froze at <strong>3:30 p.m. CDT</strong>. The recent rules used the preceding hour. The longer-history rule used every available main-panel reading up to the same cutoff.</p>
+    <p>The score is the selected homes’ combined mean HVAC draw from <strong>4:30 to 4:45 p.m.</strong>, using measured condenser and fan circuits. Measured draw is the starting point for a future curtailment test. August 24 and 25 are same-clock follow-ups. ERCOT’s August peak was on August 23.</p>
+    <p>The publisher’s archive starts at 7 p.m. local time the evening before. The previous day’s matching window falls outside the dataset.</p>
+  </aside>
+</section>
+
+<section aria-labelledby="house-title">
+  <h2 id="house-title">Inspect a household</h2>
+  <p class="copy">Select a household to see the measurements behind each rank. Bold ranks indicate selection at the current invitation budget.</p>
+  <div class="households">
+    <div class="table-scroll" tabindex="0" aria-label="Scrollable household rankings">
+      <table><caption>Household ranks and measured peak-interval HVAC load</caption><thead><tr><th scope="col">Household</th><th scope="col">Recent<br>HVAC</th><th scope="col">Recent<br>panel</th><th scope="col">Longer-history<br>panel</th><th scope="col">Event<br>HVAC (kW)</th></tr></thead><tbody id="rows"></tbody></table>
+    </div>
+    <div class="panel" aria-live="polite">
+      <h3 id="house-label"></h3>
+      <p id="house-summary"></p>
+      <dl class="audit-list" id="house-evidence"></dl>
+      <h3>Measured HVAC by quarter-hour (kW)</h3>
+      <ol id="trace" class="trace" aria-label="Mean HVAC kW by quarter-hour, local time"></ol>
+      <p class="meta">CDT · first four intervals feed the ranking · last interval scores the result</p>
+      <p class="meta" id="house-coverage"></p>
+    </div>
+  </div>
+  <details><summary>Coverage, data windows and reproducibility</summary><p id="quality"></p><p id="timestamps"></p><p>Reproduce with <code>python3 replay.py source.zip --verify</code>. The full pinned source checksum and machine-readable results are in <a href="results.json">results.json</a>.</p></details>
+</section>
+
+<section class="decision">
+  <h2>Keep the existing list. Test in shadow mode.</h2>
+  <p>Start with a utility that already runs a thermostat program. Compare its current list with appliance-based targeting across multiple new peak dates at the same fixed budget. Verify data delivery before the cutoff and check appliance estimates against independent circuit measurements.</p>
+  <p>Advance to randomized outreach only if the shadow test clears a utility-agreed bar. Judge the pilot on verified incremental peak kW per invite and cost per verified kW, alongside enrollment, opt-outs, rebound and comfort.</p>
+  <p><a href="pilot-brief.md">Read the pilot brief</a></p>
+</section>
+<footer>Sources · <a href="https://www.pecanstreet.org/2025/07/public-data/">Pecan Street Austin meter sample</a> · <a href="https://www.ercot.com/mktinfo/data_agg/4cp">ERCOT 4CP workbook archive</a> · <a href="README.md">Reproduction protocol</a></footer>
+</main>
+<script id="replay-data" type="application/json">{
+  "primary_budget": 3,
+  "replays": [
+    {
+      "budgets": [
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 0.004,
+            "hvac": 0.004,
+            "matched": 0.004
+          },
+          "lift_pct": 0.0,
+          "size": 1
+        },
+        {
+          "delta_kw": 1.113867,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 3.867467,
+            "hvac": 4.981333,
+            "matched": 4.981333
+          },
+          "lift_pct": 28.800938,
+          "size": 2
+        },
+        {
+          "delta_kw": 1.712267,
+          "delta_matched_kw": 0.777133,
+          "kw": {
+            "baseline": 7.132533,
+            "hvac": 8.8448,
+            "matched": 8.067667
+          },
+          "lift_pct": 24.006431,
+          "size": 3
+        },
+        {
+          "delta_kw": 0.8874,
+          "delta_matched_kw": 1.066133,
+          "kw": {
+            "baseline": 12.109867,
+            "hvac": 12.997267,
+            "matched": 11.931133
+          },
+          "lift_pct": 7.327909,
+          "size": 4
+        },
+        {
+          "delta_kw": 0.8874,
+          "delta_matched_kw": 1.066133,
+          "kw": {
+            "baseline": 14.9264,
+            "hvac": 15.8138,
+            "matched": 14.747667
+          },
+          "lift_pct": 5.945171,
+          "size": 5
+        },
+        {
+          "delta_kw": 1.066133,
+          "delta_matched_kw": 0.178733,
+          "kw": {
+            "baseline": 18.012733,
+            "hvac": 19.078867,
+            "matched": 18.900133
+          },
+          "lift_pct": 5.918776,
+          "size": 6
+        },
+        {
+          "delta_kw": -0.311267,
+          "delta_matched_kw": -0.311267,
+          "kw": {
+            "baseline": 22.1652,
+            "hvac": 21.853933,
+            "matched": 22.1652
+          },
+          "lift_pct": -1.404303,
+          "size": 7
+        },
+        {
+          "delta_kw": -0.311267,
+          "delta_matched_kw": -0.311267,
+          "kw": {
+            "baseline": 25.654333,
+            "hvac": 25.343067,
+            "matched": 25.654333
+          },
+          "lift_pct": -1.21331,
+          "size": 8
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.572867,
+          "kw": {
+            "baseline": 28.4294,
+            "hvac": 28.4294,
+            "matched": 27.856533
+          },
+          "lift_pct": 0.0,
+          "size": 9
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 30.6316,
+            "hvac": 30.6316,
+            "matched": 30.6316
+          },
+          "lift_pct": 0.0,
+          "size": 10
+        }
+      ],
+      "coverage_check": {
+        "excluded_from_all": true,
+        "hvac_after": [
+          2,
+          1,
+          9
+        ],
+        "hvac_before": [
+          7,
+          2,
+          1
+        ],
+        "injected_home": 7,
+        "missing_observations": 1
+      },
+      "date": "2018-08-23",
+      "eligible": 10,
+      "ercot_4cp": true,
+      "event_utc": [
+        "2018-08-23 21:30:00+00:00",
+        "2018-08-23 21:45:00+00:00"
+      ],
+      "excluded": {},
+      "households": [
+        {
+          "event_kw": 3.863467,
+          "id": 1,
+          "prior_kw": {
+            "baseline": 2.486807,
+            "hvac": 2.973067,
+            "matched": 0.193233
+          },
+          "ranks": {
+            "baseline": 2,
+            "hvac": 3,
+            "matched": 4
+          },
+          "recent_hvac_quarters_kw": [
+            0.519667,
+            1.895467,
+            4.7092,
+            4.767933
+          ]
+        },
+        {
+          "event_kw": 4.977333,
+          "id": 2,
+          "prior_kw": {
+            "baseline": 2.183462,
+            "hvac": 3.2321,
+            "matched": 1.1201
+          },
+          "ranks": {
+            "baseline": 4,
+            "hvac": 2,
+            "matched": 2
+          },
+          "recent_hvac_quarters_kw": [
+            4.751333,
+            0.554267,
+            3.353933,
+            4.268867
+          ]
+        },
+        {
+          "event_kw": 2.816533,
+          "id": 3,
+          "prior_kw": {
+            "baseline": 2.048717,
+            "hvac": 2.87995,
+            "matched": -0.3869
+          },
+          "ranks": {
+            "baseline": 5,
+            "hvac": 5,
+            "matched": 5
+          },
+          "recent_hvac_quarters_kw": [
+            2.883667,
+            2.898467,
+            2.889133,
+            2.848533
+          ]
+        },
+        {
+          "event_kw": 2.775067,
+          "id": 4,
+          "prior_kw": {
+            "baseline": 0.63533,
+            "hvac": 1.388517,
+            "matched": -3.169983
+          },
+          "ranks": {
+            "baseline": 9,
+            "hvac": 7,
+            "matched": 10
+          },
+          "recent_hvac_quarters_kw": [
+            0.367467,
+            0.6602,
+            1.744133,
+            2.782267
+          ]
+        },
+        {
+          "event_kw": 3.265067,
+          "id": 5,
+          "prior_kw": {
+            "baseline": 2.384595,
+            "hvac": 2.193133,
+            "matched": -0.9406
+          },
+          "ranks": {
+            "baseline": 3,
+            "hvac": 6,
+            "matched": 7
+          },
+          "recent_hvac_quarters_kw": [
+            3.528667,
+            0.714133,
+            3.340733,
+            1.189
+          ]
+        },
+        {
+          "event_kw": 3.489133,
+          "id": 6,
+          "prior_kw": {
+            "baseline": 1.183862,
+            "hvac": 1.368067,
+            "matched": -1.555983
+          },
+          "ranks": {
+            "baseline": 8,
+            "hvac": 8,
+            "matched": 8
+          },
+          "recent_hvac_quarters_kw": [
+            0.393467,
+            2.138067,
+            2.106533,
+            0.8342
+          ]
+        },
+        {
+          "event_kw": 0.004,
+          "id": 7,
+          "prior_kw": {
+            "baseline": 2.605976,
+            "hvac": 4.732333,
+            "matched": 2.029617
+          },
+          "ranks": {
+            "baseline": 1,
+            "hvac": 1,
+            "matched": 1
+          },
+          "recent_hvac_quarters_kw": [
+            4.721733,
+            4.7166,
+            4.7392,
+            4.7518
+          ]
+        },
+        {
+          "event_kw": 3.086333,
+          "id": 8,
+          "prior_kw": {
+            "baseline": 1.438702,
+            "hvac": 1.2619,
+            "matched": 0.412217
+          },
+          "ranks": {
+            "baseline": 6,
+            "hvac": 9,
+            "matched": 3
+          },
+          "recent_hvac_quarters_kw": [
+            1.647467,
+            0.424933,
+            1.142067,
+            1.833133
+          ]
+        },
+        {
+          "event_kw": 4.152467,
+          "id": 9,
+          "prior_kw": {
+            "baseline": 1.438609,
+            "hvac": 2.934883,
+            "matched": -0.4848
+          },
+          "ranks": {
+            "baseline": 7,
+            "hvac": 4,
+            "matched": 6
+          },
+          "recent_hvac_quarters_kw": [
+            2.451867,
+            4.147867,
+            3.919133,
+            1.220667
+          ]
+        },
+        {
+          "event_kw": 2.2022,
+          "id": 10,
+          "prior_kw": {
+            "baseline": 0.349466,
+            "hvac": 0.009,
+            "matched": -1.649883
+          },
+          "ranks": {
+            "baseline": 10,
+            "hvac": 10,
+            "matched": 9
+          },
+          "recent_hvac_quarters_kw": [
+            0.009,
+            0.009,
+            0.009,
+            0.009
+          ]
+        }
+      ],
+      "orders": {
+        "baseline": [
+          7,
+          1,
+          5,
+          2,
+          3,
+          8,
+          9,
+          6,
+          4,
+          10
+        ],
+        "hvac": [
+          7,
+          2,
+          1,
+          9,
+          3,
+          5,
+          4,
+          6,
+          8,
+          10
+        ],
+        "matched": [
+          7,
+          2,
+          8,
+          1,
+          3,
+          9,
+          5,
+          6,
+          10,
+          4
+        ]
+      },
+      "primary_budget": 3,
+      "ranking_utc": {
+        "panel": [
+          "2018-08-23 00:00:00+00:00",
+          "2018-08-23 20:30:00+00:00"
+        ],
+        "recent": [
+          "2018-08-23 19:30:00+00:00",
+          "2018-08-23 20:30:00+00:00"
+        ]
+      },
+      "source_csv_sha256": "1f7ecc25db0f228273d29fa60c5df84d02df1eb27c27e8409b3033d5cd6fa03f",
+      "total_event_kw": 30.6316
+    },
+    {
+      "budgets": [
+        {
+          "delta_kw": -2.713733,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 2.717733,
+            "hvac": 0.004,
+            "matched": 0.004
+          },
+          "lift_pct": -99.852819,
+          "size": 1
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 2.721733,
+            "hvac": 2.721733,
+            "matched": 2.721733
+          },
+          "lift_pct": 0.0,
+          "size": 2
+        },
+        {
+          "delta_kw": -0.715733,
+          "delta_matched_kw": -0.715733,
+          "kw": {
+            "baseline": 6.917333,
+            "hvac": 6.2016,
+            "matched": 6.917333
+          },
+          "lift_pct": -10.346955,
+          "size": 3
+        },
+        {
+          "delta_kw": -1.519867,
+          "delta_matched_kw": -1.059667,
+          "kw": {
+            "baseline": 10.8574,
+            "hvac": 9.337533,
+            "matched": 10.3972
+          },
+          "lift_pct": -13.99844,
+          "size": 4
+        },
+        {
+          "delta_kw": -0.804133,
+          "delta_matched_kw": 0.949067,
+          "kw": {
+            "baseline": 14.337267,
+            "hvac": 13.533133,
+            "matched": 12.584067
+          },
+          "lift_pct": -5.608693,
+          "size": 5
+        },
+        {
+          "delta_kw": -0.804133,
+          "delta_matched_kw": 1.943133,
+          "kw": {
+            "baseline": 18.467267,
+            "hvac": 17.663133,
+            "matched": 15.72
+          },
+          "lift_pct": -4.354371,
+          "size": 6
+        },
+        {
+          "delta_kw": -1.153333,
+          "delta_matched_kw": 0.599867,
+          "kw": {
+            "baseline": 21.6032,
+            "hvac": 20.449867,
+            "matched": 19.85
+          },
+          "lift_pct": -5.338715,
+          "size": 7
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.599867,
+          "kw": {
+            "baseline": 24.389933,
+            "hvac": 24.389933,
+            "matched": 23.790067
+          },
+          "lift_pct": 0.0,
+          "size": 8
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": -1.208,
+          "kw": {
+            "baseline": 26.5768,
+            "hvac": 26.5768,
+            "matched": 27.7848
+          },
+          "lift_pct": 0.0,
+          "size": 9
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 30.571533,
+            "hvac": 30.571533,
+            "matched": 30.571533
+          },
+          "lift_pct": 0.0,
+          "size": 10
+        }
+      ],
+      "coverage_check": {
+        "excluded_from_all": true,
+        "hvac_after": [
+          1,
+          6,
+          3
+        ],
+        "hvac_before": [
+          7,
+          1,
+          6
+        ],
+        "injected_home": 7,
+        "missing_observations": 1
+      },
+      "date": "2018-08-24",
+      "eligible": 10,
+      "ercot_4cp": false,
+      "event_utc": [
+        "2018-08-24 21:30:00+00:00",
+        "2018-08-24 21:45:00+00:00"
+      ],
+      "excluded": {},
+      "households": [
+        {
+          "event_kw": 2.717733,
+          "id": 1,
+          "prior_kw": {
+            "baseline": 2.417144,
+            "hvac": 4.581483,
+            "matched": 1.503117
+          },
+          "ranks": {
+            "baseline": 1,
+            "hvac": 2,
+            "matched": 2
+          },
+          "recent_hvac_quarters_kw": [
+            4.573533,
+            4.544,
+            4.582933,
+            4.625467
+          ]
+        },
+        {
+          "event_kw": 4.1956,
+          "id": 2,
+          "prior_kw": {
+            "baseline": 2.233689,
+            "hvac": 3.02845,
+            "matched": 0.77875
+          },
+          "ranks": {
+            "baseline": 3,
+            "hvac": 5,
+            "matched": 3
+          },
+          "recent_hvac_quarters_kw": [
+            3.143533,
+            3.288867,
+            3.2808,
+            2.4006
+          ]
+        },
+        {
+          "event_kw": 3.135933,
+          "id": 3,
+          "prior_kw": {
+            "baseline": 1.044908,
+            "hvac": 3.1299,
+            "matched": -0.23665
+          },
+          "ranks": {
+            "baseline": 7,
+            "hvac": 4,
+            "matched": 6
+          },
+          "recent_hvac_quarters_kw": [
+            3.124733,
+            3.108467,
+            3.144933,
+            3.141467
+          ]
+        },
+        {
+          "event_kw": 2.786733,
+          "id": 4,
+          "prior_kw": {
+            "baseline": 0.998263,
+            "hvac": 2.28755,
+            "matched": -2.328017
+          },
+          "ranks": {
+            "baseline": 8,
+            "hvac": 7,
+            "matched": 10
+          },
+          "recent_hvac_quarters_kw": [
+            2.735733,
+            2.714467,
+            0.9192,
+            2.7808
+          ]
+        },
+        {
+          "event_kw": 3.940067,
+          "id": 5,
+          "prior_kw": {
+            "baseline": 1.583923,
+            "hvac": 2.092717,
+            "matched": -0.9886
+          },
+          "ranks": {
+            "baseline": 4,
+            "hvac": 8,
+            "matched": 8
+          },
+          "recent_hvac_quarters_kw": [
+            2.801867,
+            1.7854,
+            3.6148,
+            0.1688
+          ]
+        },
+        {
+          "event_kw": 3.479867,
+          "id": 6,
+          "prior_kw": {
+            "baseline": 1.321693,
+            "hvac": 3.17515,
+            "matched": 0.479033
+          },
+          "ranks": {
+            "baseline": 5,
+            "hvac": 3,
+            "matched": 4
+          },
+          "recent_hvac_quarters_kw": [
+            3.4242,
+            2.379133,
+            3.438933,
+            3.458333
+          ]
+        },
+        {
+          "event_kw": 0.004,
+          "id": 7,
+          "prior_kw": {
+            "baseline": 2.258119,
+            "hvac": 4.770667,
+            "matched": 1.865
+          },
+          "ranks": {
+            "baseline": 2,
+            "hvac": 1,
+            "matched": 1
+          },
+          "recent_hvac_quarters_kw": [
+            4.766133,
+            4.778533,
+            4.784467,
+            4.753533
+          ]
+        },
+        {
+          "event_kw": 3.994733,
+          "id": 8,
+          "prior_kw": {
+            "baseline": 0.356006,
+            "hvac": 1.43025,
+            "matched": -1.7598
+          },
+          "ranks": {
+            "baseline": 10,
+            "hvac": 10,
+            "matched": 9
+          },
+          "recent_hvac_quarters_kw": [
+            1.250267,
+            1.0114,
+            1.8262,
+            1.633133
+          ]
+        },
+        {
+          "event_kw": 4.13,
+          "id": 9,
+          "prior_kw": {
+            "baseline": 1.277617,
+            "hvac": 2.58965,
+            "matched": -0.975233
+          },
+          "ranks": {
+            "baseline": 6,
+            "hvac": 6,
+            "matched": 7
+          },
+          "recent_hvac_quarters_kw": [
+            1.632,
+            3.929667,
+            2.2248,
+            2.572133
+          ]
+        },
+        {
+          "event_kw": 2.186867,
+          "id": 10,
+          "prior_kw": {
+            "baseline": 0.948487,
+            "hvac": 1.531133,
+            "matched": -0.037983
+          },
+          "ranks": {
+            "baseline": 9,
+            "hvac": 9,
+            "matched": 5
+          },
+          "recent_hvac_quarters_kw": [
+            1.0662,
+            2.1864,
+            1.0266,
+            1.845333
+          ]
+        }
+      ],
+      "orders": {
+        "baseline": [
+          1,
+          7,
+          2,
+          5,
+          6,
+          9,
+          3,
+          4,
+          10,
+          8
+        ],
+        "hvac": [
+          7,
+          1,
+          6,
+          3,
+          2,
+          9,
+          4,
+          5,
+          10,
+          8
+        ],
+        "matched": [
+          7,
+          1,
+          2,
+          6,
+          10,
+          3,
+          9,
+          5,
+          8,
+          4
+        ]
+      },
+      "primary_budget": 3,
+      "ranking_utc": {
+        "panel": [
+          "2018-08-24 00:00:00+00:00",
+          "2018-08-24 20:30:00+00:00"
+        ],
+        "recent": [
+          "2018-08-24 19:30:00+00:00",
+          "2018-08-24 20:30:00+00:00"
+        ]
+      },
+      "source_csv_sha256": "1f7ecc25db0f228273d29fa60c5df84d02df1eb27c27e8409b3033d5cd6fa03f",
+      "total_event_kw": 30.571533
+    },
+    {
+      "budgets": [
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 0.515067,
+            "hvac": 0.515067,
+            "matched": 0.515067
+          },
+          "lift_pct": 0.0,
+          "size": 1
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 2.337333,
+            "hvac": 2.337333,
+            "matched": 2.337333
+          },
+          "lift_pct": 0.0,
+          "size": 2
+        },
+        {
+          "delta_kw": -0.509867,
+          "delta_matched_kw": -2.364933,
+          "kw": {
+            "baseline": 5.135467,
+            "hvac": 4.6256,
+            "matched": 6.990533
+          },
+          "lift_pct": -9.928341,
+          "size": 3
+        },
+        {
+          "delta_kw": -2.364933,
+          "delta_matched_kw": -1.855067,
+          "kw": {
+            "baseline": 9.788667,
+            "hvac": 7.423733,
+            "matched": 9.2788
+          },
+          "lift_pct": -24.159913,
+          "size": 4
+        },
+        {
+          "delta_kw": -3.481467,
+          "delta_matched_kw": -1.9272,
+          "kw": {
+            "baseline": 13.6312,
+            "hvac": 10.149733,
+            "matched": 12.076933
+          },
+          "lift_pct": -25.540427,
+          "size": 5
+        },
+        {
+          "delta_kw": -1.554267,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 16.3572,
+            "hvac": 14.802933,
+            "matched": 14.802933
+          },
+          "lift_pct": -9.502034,
+          "size": 6
+        },
+        {
+          "delta_kw": -2.327333,
+          "delta_matched_kw": 0.139067,
+          "kw": {
+            "baseline": 18.645467,
+            "hvac": 16.318133,
+            "matched": 16.179067
+          },
+          "lift_pct": -12.482033,
+          "size": 7
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.139067,
+          "kw": {
+            "baseline": 20.160667,
+            "hvac": 20.160667,
+            "matched": 20.0216
+          },
+          "lift_pct": 0.0,
+          "size": 8
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 21.5368,
+            "hvac": 21.5368,
+            "matched": 21.5368
+          },
+          "lift_pct": 0.0,
+          "size": 9
+        },
+        {
+          "delta_kw": 0.0,
+          "delta_matched_kw": 0.0,
+          "kw": {
+            "baseline": 21.7406,
+            "hvac": 21.7406,
+            "matched": 21.7406
+          },
+          "lift_pct": 0.0,
+          "size": 10
+        }
+      ],
+      "coverage_check": {
+        "excluded_from_all": true,
+        "hvac_after": [
+          2,
+          9,
+          3
+        ],
+        "hvac_before": [
+          1,
+          2,
+          9
+        ],
+        "injected_home": 1,
+        "missing_observations": 1
+      },
+      "date": "2018-08-25",
+      "eligible": 10,
+      "ercot_4cp": false,
+      "event_utc": [
+        "2018-08-25 21:30:00+00:00",
+        "2018-08-25 21:45:00+00:00"
+      ],
+      "excluded": {},
+      "households": [
+        {
+          "event_kw": 0.515067,
+          "id": 1,
+          "prior_kw": {
+            "baseline": 2.925344,
+            "hvac": 4.594667,
+            "matched": 1.583417
+          },
+          "ranks": {
+            "baseline": 1,
+            "hvac": 1,
+            "matched": 1
+          },
+          "recent_hvac_quarters_kw": [
+            4.5978,
+            4.608533,
+            4.569733,
+            4.6026
+          ]
+        },
+        {
+          "event_kw": 1.822267,
+          "id": 2,
+          "prior_kw": {
+            "baseline": 2.396681,
+            "hvac": 3.310083,
+            "matched": 0.967633
+          },
+          "ranks": {
+            "baseline": 2,
+            "hvac": 2,
+            "matched": 2
+          },
+          "recent_hvac_quarters_kw": [
+            4.388733,
+            2.213533,
+            2.7384,
+            3.899667
+          ]
+        },
+        {
+          "event_kw": 2.798133,
+          "id": 3,
+          "prior_kw": {
+            "baseline": 2.246647,
+            "hvac": 2.831783,
+            "matched": -0.629817
+          },
+          "ranks": {
+            "baseline": 3,
+            "hvac": 4,
+            "matched": 5
+          },
+          "recent_hvac_quarters_kw": [
+            2.8232,
+            2.824667,
+            2.827933,
+            2.851333
+          ]
+        },
+        {
+          "event_kw": 2.726,
+          "id": 4,
+          "prior_kw": {
+            "baseline": 1.564728,
+            "hvac": 2.728833,
+            "matched": -0.7974
+          },
+          "ranks": {
+            "baseline": 6,
+            "hvac": 5,
+            "matched": 6
+          },
+          "recent_hvac_quarters_kw": [
+            2.719267,
+            2.720467,
+            2.7216,
+            2.754
+          ]
+        },
+        {
+          "event_kw": 3.842533,
+          "id": 5,
+          "prior_kw": {
+            "baseline": 1.842665,
+            "hvac": 1.6066,
+            "matched": -1.593683
+          },
+          "ranks": {
+            "baseline": 5,
+            "hvac": 8,
+            "matched": 8
+          },
+          "recent_hvac_quarters_kw": [
+            1.1156,
+            3.830333,
+            1.471467,
+            0.009
+          ]
+        },
+        {
+          "event_kw": 0.2038,
+          "id": 6,
+          "prior_kw": {
+            "baseline": 0.308427,
+            "hvac": 0.520533,
+            "matched": -2.795167
+          },
+          "ranks": {
+            "baseline": 10,
+            "hvac": 10,
+            "matched": 10
+          },
+          "recent_hvac_quarters_kw": [
+            1.461667,
+            0.207933,
+            0.206867,
+            0.205667
+          ]
+        },
+        {
+          "event_kw": 4.6532,
+          "id": 7,
+          "prior_kw": {
+            "baseline": 2.061949,
+            "hvac": 2.558717,
+            "matched": 0.227517
+          },
+          "ranks": {
+            "baseline": 4,
+            "hvac": 6,
+            "matched": 3
+          },
+          "recent_hvac_quarters_kw": [
+            0.472067,
+            4.304733,
+            0.786867,
+            4.6712
+          ]
+        },
+        {
+          "event_kw": 1.5152,
+          "id": 8,
+          "prior_kw": {
+            "baseline": 0.500298,
+            "hvac": 1.773667,
+            "matched": -1.7888
+          },
+          "ranks": {
+            "baseline": 8,
+            "hvac": 7,
+            "matched": 9
+          },
+          "recent_hvac_quarters_kw": [
+            2.325467,
+            1.970467,
+            1.438867,
+            1.359867
+          ]
+        },
+        {
+          "event_kw": 2.288267,
+          "id": 9,
+          "prior_kw": {
+            "baseline": 1.317575,
+            "hvac": 3.044617,
+            "matched": -0.403233
+          },
+          "ranks": {
+            "baseline": 7,
+            "hvac": 3,
+            "matched": 4
+          },
+          "recent_hvac_quarters_kw": [
+            3.099667,
+            1.0846,
+            4.0432,
+            3.951
+          ]
+        },
+        {
+          "event_kw": 1.376133,
+          "id": 10,
+          "prior_kw": {
+            "baseline": 0.40736,
+            "hvac": 0.568733,
+            "matched": -1.0871
+          },
+          "ranks": {
+            "baseline": 9,
+            "hvac": 9,
+            "matched": 7
+          },
+          "recent_hvac_quarters_kw": [
+            1.008933,
+            0.204133,
+            1.036133,
+            0.025733
+          ]
+        }
+      ],
+      "orders": {
+        "baseline": [
+          1,
+          2,
+          3,
+          7,
+          5,
+          4,
+          9,
+          8,
+          10,
+          6
+        ],
+        "hvac": [
+          1,
+          2,
+          9,
+          3,
+          4,
+          7,
+          8,
+          5,
+          10,
+          6
+        ],
+        "matched": [
+          1,
+          2,
+          7,
+          9,
+          3,
+          4,
+          10,
+          5,
+          8,
+          6
+        ]
+      },
+      "primary_budget": 3,
+      "ranking_utc": {
+        "panel": [
+          "2018-08-25 00:00:00+00:00",
+          "2018-08-25 20:30:00+00:00"
+        ],
+        "recent": [
+          "2018-08-25 19:30:00+00:00",
+          "2018-08-25 20:30:00+00:00"
+        ]
+      },
+      "source_csv_sha256": "1f7ecc25db0f228273d29fa60c5df84d02df1eb27c27e8409b3033d5cd6fa03f",
+      "total_event_kw": 21.7406
+    }
+  ]
+}
+</script>
+<script>
+"use strict";
+const study = JSON.parse(document.getElementById("replay-data").textContent);
+const $ = id => document.getElementById(id);
+const metrics = [
+  ["hvac", "Recent HVAC"],
+  ["matched", "Recent main panel"],
+  ["baseline", "Longer-history main panel"]
+];
+const label = id => "Home " + String(id).padStart(2, "0");
+const kw = value => value.toFixed(3) + " kW";
+const signed = value => (value > 0 ? "+" : "") + kw(value);
+const peak = study.replays[0];
+const primary = peak.budgets[study.primary_budget - 1];
+let dayIndex = 0;
+let budget = study.primary_budget;
+let active = peak.orders.hvac[0];
+
+function setup() {
+  const wins = study.replays.filter(replay => {
+    const result = replay.budgets[study.primary_budget - 1];
+    return result.delta_kw > 0 && result.delta_matched_kw > 0;
+  }).length;
+  $("finding").textContent = "At three invitations, HVAC beat both benchmarks on " +
+    wins + " of " + study.replays.length + " dates. Keep the current list while testing on more peaks.";
+  $("stats").innerHTML = metrics.map(([key, name]) =>
+    '<div class="stat"><div class="meta">' + name + '</div><b>' +
+      primary.kw[key].toFixed(3) + ' kW</b><span>Aug 23 peak · three invitations</span></div>'
+  ).join("");
+  $("result-note").textContent =
+    "At three invitations, the HVAC rule captured " + primary.lift_pct.toFixed(1) +
+    "% more observed load than the longer-history baseline and " +
+    kw(primary.delta_matched_kw) + " more than the time-matched panel rule.";
+  study.replays.forEach((replay, i) => {
+    const button = document.createElement("button");
+    button.className = "date";
+    const outcome = replay.budgets[study.primary_budget - 1];
+    button.innerHTML = "<span>Aug " + Number(replay.date.slice(-2)) +
+      (replay.ercot_4cp ? " · ERCOT peak" : " · follow-up") +
+      "</span><strong>" + signed(outcome.delta_matched_kw) + " vs recent panel</strong>";
+    button.addEventListener("click", () => { dayIndex = i; render(); });
+    $("dates").append(button);
+  });
+  for (const {size} of peak.budgets) {
+    const button = document.createElement("button");
+    button.className = "budget";
+    button.textContent = size;
+    button.setAttribute("aria-label", size + (size === 1 ? " invitation" : " invitations"));
+    button.addEventListener("click", () => { budget = size; render(); });
+    $("budgets").append(button);
+  }
+  for (const home of peak.households) {
+    const tr = $("rows").insertRow();
+    const cell = document.createElement("th");
+    cell.scope = "row";
+    const button = document.createElement("button");
+    button.className = "house";
+    button.textContent = label(home.id);
+    button.addEventListener("click", () => { active = home.id; render(); });
+    cell.append(button);
+    tr.append(cell);
+    for (const [key] of metrics) tr.insertCell().textContent = home.ranks[key];
+    tr.insertCell().textContent = home.event_kw.toFixed(3);
+  }
+  render();
+}
+
+function render() {
+  const data = study.replays[dayIndex];
+  Array.from($("dates").children).forEach((button, i) =>
+    button.setAttribute("aria-pressed", String(i === dayIndex)));
+  const g = data.coverage_check;
+  $("quality").textContent =
+    "Observed data: all " + data.eligible + " homes passed coverage. In a deliberate test, " +
+    "removing one pre-event condenser reading excluded " + label(g.injected_home) +
+    " from all rankings. The three-home HVAC list changed from " +
+    g.hvac_before.map(label).join(", ") + " to " + g.hvac_after.map(label).join(", ") +
+    ". The observed results above use the original readings.";
+  const hours = window => window.map(time => time.slice(11, 16)).join("–") + " UTC";
+  $("timestamps").textContent = data.date + " · longer history " + hours(data.ranking_utc.panel) +
+    " · recent ranking input " + hours(data.ranking_utc.recent) +
+    " · scored interval " + hours(data.event_utc) + ".";
+  const row = data.budgets[budget - 1];
+  const max = Math.ceil(Math.max(...study.replays.map(replay => replay.total_event_kw)) / 5) * 5;
+  Array.from($("budgets").children).forEach((button, i) =>
+    button.setAttribute("aria-pressed", String(i + 1 === budget)));
+  $("axis-max").textContent = max + " kW";
+  $("bars").innerHTML = metrics.map(([key, name]) =>
+    '<div class="bar-row"><div class="bar-title"><span>' + name + '</span><span>' +
+    kw(row.kw[key]) + '</span></div><div class="bar-track" aria-hidden="true"><div class="bar ' +
+    key + '" style="width:' + Math.max(0, row.kw[key] / max * 100) + '%"></div></div>' +
+    '<div class="cohort">' + data.orders[key].slice(0, budget).map(label).join(' · ') + '</div></div>'
+  ).join("");
+  $("delta").textContent = "HVAC rule at " + budget + (budget === 1 ? " invitation" : " invitations") +
+    " · " + signed(row.delta_kw) + " versus longer-history panel · " +
+    signed(row.delta_matched_kw) + " versus recent panel.";
+  data.households.forEach((home, i) => {
+    const tr = $("rows").rows[i];
+    tr.classList.toggle("focus", home.id === active);
+    tr.querySelector("button").setAttribute("aria-pressed", String(home.id === active));
+    tr.cells[4].textContent = home.event_kw.toFixed(3);
+    metrics.forEach(([key], pos) => {
+      const cell = tr.cells[pos + 1];
+      cell.textContent = home.ranks[key];
+      const selected = home.ranks[key] <= budget;
+      cell.classList.toggle("selected", selected);
+      cell.setAttribute("aria-label", "Rank " + home.ranks[key] + (selected ? ", selected" : ", outside invitation budget"));
+    });
+  });
+  const home = data.households.find(item => item.id === active);
+  $("house-label").textContent = label(active);
+  const included = home.ranks.hvac <= budget;
+  $("house-summary").textContent = (included ? "Inside" : "Outside") +
+    " the HVAC invitation list at this budget. Rank " + home.ranks.hvac +
+    " of " + data.eligible + " before the event. Measured event HVAC was " + kw(home.event_kw) + ".";
+  $("house-evidence").innerHTML = metrics.map(([key, name]) =>
+    "<div><dt>" + name + "</dt><dd>" + kw(home.prior_kw[key]) +
+    " · #" + home.ranks[key] + "</dd></div>"
+  ).join("");
+  const times = ["2:30", "2:45", "3:00", "3:15", "4:30"];
+  const recentAndEvent = [...home.recent_hvac_quarters_kw, home.event_kw];
+  const traceMax = Math.max(1, ...study.replays.flatMap(replay =>
+    replay.households.flatMap(item => [...item.recent_hvac_quarters_kw, item.event_kw])));
+  $("trace").innerHTML = recentAndEvent.map((value, i) =>
+    '<li aria-label="' + times[i] + ' p.m. ' + kw(value) + '">' +
+    '<span>' + value.toFixed(2) + '</span><span class="trace-track"><i class="trace-bar" style="height:' +
+    Math.max(0, value / traceMax * 32) + 'px"></i></span><span>' + times[i] + '</span></li>'
+  ).join("");
+  $("house-coverage").textContent =
+    "1,230 panel minutes · 60 recent minutes per HVAC circuit · 15 event minutes per HVAC circuit";
+}
+setup();
+</script>
+</body>
+</html>
